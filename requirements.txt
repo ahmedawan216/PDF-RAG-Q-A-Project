@@ -1,11 +1,13 @@
 streamlit
 langchain
 langchain-community
-langchain-chroma
 langchain-text-splitters
 langchain-huggingface
+langchain-chroma
 langchain-groq
+langchain-core
+langchain-classic
+chromadb==0.4.24
 sentence-transformers
-chromadb
 pypdf
 python-dotenv
