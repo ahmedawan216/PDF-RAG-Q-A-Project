@@ -5,7 +5,7 @@ import tempfile
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_chroma import Chroma
+from langchain_community.vectorstores import FAISS
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_classic.chains import create_retrieval_chain
@@ -65,10 +65,9 @@ def build_rag_pipeline(docs, collection_name):
 
     print(f"Total chunks created: {len(chunks)}")
 
-    vector_store = Chroma.from_documents(
+    vector_store = FAISS.from_documents(
         documents=chunks,
-        embedding=get_embeddings(),
-        collection_name=collection_name
+        embedding=get_embeddings()
     )
 
     retriever = vector_store.as_retriever(
