@@ -11,3 +11,5 @@ chromadb==0.4.24
 sentence-transformers
 pypdf
 python-dotenv
+numpy==1.26.4
+chromadb==0.4.24
